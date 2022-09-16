@@ -1,0 +1,17 @@
+<h1>All Ingredients</h1>
+
+<div>
+    <% @ingredients.each do |ingredient| %>
+        <li><%= link_to ingredient.body, ingredient %></li> 
+    <% end %>
+</div><br>
+
+<%= link_to "Add Ingredients", new_ingredient_path %><br>
+<%= link_to "Home", "/recipes" %><br>
+
+<%= form_tag "/search", method: "GET" do %>
+    <%= label_tag :search_by_ingredients %>
+    <%= text_field_tag :search_by_ingredients, params[:search_by_ingredients] %>
+
+    <%= submit_tag "Search" %>
+<% end %>

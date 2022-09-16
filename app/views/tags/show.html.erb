@@ -1,0 +1,11 @@
+<h1>What would you like to do for tag: <%= @tag.title %></h1>
+
+<br>
+
+<div>
+<%= link_to "Edit Tag", edit_recipe_tag_path(recipe_id: @recipe.id, tag_id: @tag.id)%><br>
+<%= link_to "Destroy", recipe_tag_path(recipe_id: @recipe.id, tag_id: @tag.id), 
+                method: :delete,
+                data: { confirm: "Are you sure?" } %><br>
+<%= link_to "Home", root_path %>
+</div>

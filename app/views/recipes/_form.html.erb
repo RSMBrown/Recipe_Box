@@ -1,0 +1,28 @@
+<div>
+<%= form_with model: @recipe do |form| %>
+    <div>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+    </div><br>
+
+    <div>
+        <%= form.label "Choose your ingredients: " %><br>
+            <%= form.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :body do |x| %>
+                <%= x.check_box %>
+                <%= x.label %><br>
+            <% end %> 
+    </div> <br>
+    
+    <div>
+        <%= form.label :Instructions %><br>
+        <%= form.text_area :body %>
+    </div><br>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %><br>
+
+<h2><%= link_to "Home", root_path %></h2>
+
+</div>

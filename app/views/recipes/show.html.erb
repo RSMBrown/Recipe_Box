@@ -1,0 +1,43 @@
+<h1><%= @recipe.title %></h1>
+
+<%@recipe.tags.each do |tag|%>
+    <%= link_to tag.title, recipe_tag_path(@recipe, tag)%>
+<% end %>
+
+<% if @recipe.rating.present? %>
+
+    <h2>Rating: <%= @recipe.rating.body %>/5</h2>
+
+<% else %> 
+
+    <h2>Set Rating out of 5 for <%= @recipe.title %></h2>
+
+    <%= render "ratings/form" %>
+
+<% end %> 
+
+<h1>Ingredients</h1>
+
+<%@recipe.ingredients.each do |ingredient|%>
+    <li>
+        <%= ingredient.body%>
+    </li>
+<% end %><br>
+
+<h1>Instructions: </h1>
+<p> <%= @recipe.body %></p>
+
+
+
+<br>
+
+
+<%= link_to "New Tag", new_recipe_tag_path(@recipe)%><br>
+<%= link_to "Edit Recipe", edit_recipe_path(@recipe) %><br>
+<%= link_to "Destroy Recipe", recipe_path(@recipe), 
+                method: :delete,
+                data: { confirm: "Are you sure?" } %><br>
+<%= link_to "Home", "/recipes" %>
+
+
+

@@ -1,0 +1,7 @@
+<h1>Ingredient: <%= @ingredient.body %></h1>
+
+
+<%= link_to "Destroy Ingredient", ingredient_path, 
+                method: :delete,
+                data: { confirm: "Are you sure?" } %><br>
+<%= link_to "Home", "/recipes" %>

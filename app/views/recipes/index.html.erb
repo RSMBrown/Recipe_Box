@@ -1,0 +1,18 @@
+<h1>My Recipes</h1>
+
+<div>
+    <% @recipes.each do |recipe| %>
+
+        <h2><%= link_to recipe.title, recipe %></h2>
+        <p><%= truncate(recipe.body, length: 50) %></p>
+        <p><small>Tags: <% recipe.tags.each do |tag| %><%= tag.title %><% end %> </small></p>
+
+    <% end %>
+</div>
+
+<h2><%= link_to "New Recipe", new_recipe_path %></h2>
+
+<%= link_to "Add Ingredients", new_ingredient_path %><br>
+<%= link_to "View Ingredients", ingredients_path %>
+
+
